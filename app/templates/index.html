@@ -1,7 +1,10 @@
 
 <html>
+  <head>
+    <title>Broke Detector</title>
+    <link rel="shortcut icon" href="bdLogo.png" type="image/x-icon">
+  </head>
 <center>
-  <title>Broke Detector</title>
   <h1>Is this wrist broke?</h1>
   <form method=post enctype=multipart/form-data>
     <input type=file name=file>
@@ -13,11 +16,16 @@
       {% if error %}
       <div>Input Error, only pdf, jpg, jpeg, and png files supported</div>
       {% else %}
+        {% if res %}
+        <div>Nice! No fracture found!</div>
+        {% else %}
+        <div>Uh oh! Fracture detected!</div>
+        {% endif %}
       <body>
         <img src="{{ url_for('static', filename=filename) }}" alt="pic"
-        width="300" height="600">
-        <img src="{{ url_for('static', filename=filename) }}" alt="pic"
-        width="300" height="600">
+        width="600" height="600">
+        <img src="{{ url_for('static', filename=out) }}" alt="pic"
+        width="600" height="600">
       </body>
       {% endif %}
 

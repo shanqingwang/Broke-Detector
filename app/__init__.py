@@ -18,6 +18,7 @@ def upload_file():
     filename = ""
     second = False
     error = False
+    res = ("", False)
     if request.method == 'POST':
         second = "true"
         # check if the post request has the file part
@@ -33,11 +34,12 @@ def upload_file():
             filename = secure_filename(file.filename)
             full_file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             file.save(full_file)
-            print(full_file)
+            res = process_img(full_file)
         else:
             error = "true"
 #process_img(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-    return render_template("index.html", filename=filename, error=error,
+    return render_template("index.html", filename=filename,
+            out=res[0], res=res[1], error=error,
         second=second)
        
 
