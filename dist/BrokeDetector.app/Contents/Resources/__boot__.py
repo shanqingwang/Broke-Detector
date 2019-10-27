@@ -74,7 +74,7 @@ def _path_inject(paths):
     sys.path[:0] = paths
 
 
-_path_inject(['/Users/davintjong/brokewrist'])
+_path_inject(['/Users/davintjong/brokewrist/Broke-Detector'])
 
 
 import re
@@ -126,7 +126,7 @@ def _run():
     exec(compile(source, script, 'exec'), globals(), globals())
 
 
-DEFAULT_SCRIPT='/Users/davintjong/brokewrist/BrokeDetector.py'
+DEFAULT_SCRIPT='/Users/davintjong/brokewrist/Broke-Detector/BrokeDetector.py'
 SCRIPT_MAP={}
 try:
     _run()
