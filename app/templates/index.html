@@ -1,0 +1,27 @@
+
+<html>
+<center>
+  <title>Broke Detector</title>
+  <h1>Is this wrist broke?</h1>
+  <form method=post enctype=multipart/form-data>
+    <input type=file name=file>
+    <input type=submit value=Upload>
+  </form>
+  <body>
+    {% if second %}
+
+      {% if error %}
+      <div>Input Error, only pdf, jpg, jpeg, and png files supported</div>
+      {% else %}
+      <body>
+        <img src="{{ url_for('static', filename=filename) }}" alt="pic"
+        width="300" height="600">
+        <img src="{{ url_for('static', filename=filename) }}" alt="pic"
+        width="300" height="600">
+      </body>
+      {% endif %}
+
+    {% endif %}
+  </body>
+</center>
+</html>
