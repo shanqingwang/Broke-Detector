@@ -1,6 +1,7 @@
 import os
 from flask import Flask, flash, request, redirect, url_for, send_from_directory
 from werkzeug.utils import secure_filename
+from .brokedetector import process_img
 
 UPLOAD_FOLDER = './upload'
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'jpg', 'jpeg', 'gif'}
@@ -30,9 +31,8 @@ def upload_file():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
             print(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            process_img(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
-            os.remove(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            print(os.path.join(app.config['UPLOAD_FOLDER'], filename) + " removed")
 
     return '''
     <!doctype html>
@@ -45,7 +45,7 @@ def upload_file():
     '''
 
        
-@app.route('/uploads/<filename>')
+@app.route('/upload/<filename>')
 def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'],
                                filename)
