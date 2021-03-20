@@ -45,7 +45,7 @@ jaraco.logging==2.0
 jaraco.stream==2.0
 jaraco.text==3.0
 jedi==0.13.3
-Jinja2==2.10.1
+Jinja2==2.11.3
 jmespath==0.9.4
 json5==0.8.5
 jsonschema==3.0.1
