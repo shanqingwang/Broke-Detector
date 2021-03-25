@@ -104,7 +104,7 @@ python-dateutil==2.8.0
 python-graph-core==1.8.2
 python-graph-dot==1.8.2
 pytz==2018.9
-PyYAML==5.1
+PyYAML==5.4
 pyzmq==18.1.0
 redis==3.2.1
 requests==2.21.0
